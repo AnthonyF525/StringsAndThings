@@ -15,8 +15,49 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
-    }
+        int count = 0;
+        String countYZ = "fez day";
+        char charToCount = 'z';
+        char charToCount2 = 'y';
+
+        for (int i = 0 ; i < countYZ.length(); i++) {
+            if (countYZ.charAt(i) == charToCount)
+                count++;
+            if (countYZ.charAt(i) == charToCount2) 
+                count++;
+            }
+                return count;
+            }
+            
+        public Integer countYZ2(String input){
+        int count = 0;
+        String countYZ = "day fez";
+        char charToCount = 'z';
+        char charToCount2 = 'y';
+
+        for (int i = 0 ; i < countYZ.length(); i++) {
+            if (countYZ.charAt(i) == charToCount)
+                count++;
+            if (countYZ.charAt(i) == charToCount2) 
+                count++;
+            }
+                return count;
+            }
+        
+        public Integer countYZ3(String input){
+        int count = 0;
+        String countYZ = "day fyyyz";
+        char charToCount = 'z';
+        char charToCount2 = 'y';
+
+        for (int i = 0 ; i < countYZ.length(); i++) {
+            if (countYZ.charAt(i) == charToCount)
+                count++;
+            if (countYZ.charAt(i) == charToCount2) 
+                count++;
+            }
+                return count;
+            }
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
