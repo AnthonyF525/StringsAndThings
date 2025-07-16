@@ -68,10 +68,20 @@ public class StringsAndThings {
      *           removeString("Hello there", "e") //  Should return "Hllo thr"
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
-    public String removeString(String base, String remove){
-        return null;
+    public String removeString(String base, String remove) {
+        String result = base.replace(remove, ""); // Replace all instances of 'remove' in 'base' with an empty string
+        return result;
     }
 
+    public String removeString2(String base, String remove) {
+        String result = base.replace(remove, "");
+        return result;
+    }
+
+    public String removeString3(String base, String remove) {
+        String result = base.replace(remove, "");
+        return result;
+    }
     /**
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
      * to the number of appearances of "not" anywhere in the string (case sensitive)
@@ -80,8 +90,56 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
-    public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+    public Boolean containsEqualNumberOfIsAndNot(String input) {
+        int Is = 0;
+        int Not = 0;
+
+        for (int i = 0; i < input.length() - 2; i++) {
+            if (input.substring(i, i + 2).equals("is")) {
+                Is++;
+            }
+        for (int j = 0; j < input.length() - 3; j++) {
+            if (input.substring(j, j + 3).equals("not")) {
+                Not++;
+            }
+        }
+    }
+        return Is == Not; 
+    }
+
+    public Boolean containsEqualNumberOfIsAndNot2(String input) {
+        int Is = 0;
+        int Not = 0;
+
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (input.substring(i, i + 2).equals("is")) {
+                Is++;
+            }
+        }    
+        int idx = 0;
+        while ((idx = input.indexOf("not", idx)) != -1) {
+            Not++;
+            idx += 3;
+        }
+
+        return Is == Not; 
+    }
+
+    public Boolean containsEqualNumberOfIsAndNot3(String input) {
+        int Is = 0;
+        int Not = 0;
+
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (input.substring(i, i + 2).equals("is")) {
+                Is++;
+            }
+        }    
+        int idx = 0;
+        while ((idx = input.indexOf("not", idx)) != -1) {
+            Not++;
+            idx += 3;
+    }
+        return Is == Not; 
     }
 
     /**
@@ -92,8 +150,18 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'g') {
+                boolean leftHappy = (i > 0) && (input.charAt(i - 1) == 'g');
+                boolean rightHappy = (i < input.length() - 1) && (input.charAt(i + 1) == 'g');
+                if (!leftHappy && !rightHappy) {
+                    return false; // If 'g' is not happy, return false
+                }
+            }
+        }
+        return true; // 'g' happy = true
     }
+    
 
 
     /**
@@ -104,6 +172,12 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int count = 0;
+        for (int i = 0; i < input.length() - 2; i++) {
+            if (input.charAt(i) == input.charAt (i + 1) && input.charAt (i) == input.charAt(i + 2)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
